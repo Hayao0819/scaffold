@@ -3,5 +3,5 @@ package cmd
 import "github.com/Hayao0819/scaffold/go-cobra/cmd/hoge"
 
 func init() {
-	subCmds = append(subCmds, hoge.Cmd())
+	subCmds.Add(hoge.Cmd())
 }

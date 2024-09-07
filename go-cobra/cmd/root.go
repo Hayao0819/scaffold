@@ -1,16 +1,20 @@
 package cmd
 
-import "github.com/spf13/cobra"
+import (
+	"github.com/Hayao0819/nahi/cobrautils"
+	"github.com/spf13/cobra"
+)
 
-var subCmds = []*cobra.Command{}
+var subCmds = cobrautils.Registory{}
 
-func Root() *cobra.Command {
+func rootCmd() *cobra.Command {
 	root := cobra.Command{
 		Use:          "go-cobra",
 		Short:        "go-cobra command",
 		SilenceUsage: true,
+		SilenceErrors: true,
 	}
 
-	root.AddCommand(subCmds...)
+	subCmds.Bind(&root)
 	return &root
 }

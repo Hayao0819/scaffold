@@ -1,14 +1,16 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/Hayao0819/scaffold/go-cobra/cmd"
+	_ "github.com/Hayao0819/scaffold/go-cobra/log"
 )
 
 func main() {
-	root := cmd.Root()
-	if err := root.Execute(); err != nil {
-		os.Exit(1)
+	if err := cmd.Execute(); err != nil {
+		fmt.Fprintf(os.Stderr, "%+v\n", err)
+		os.Exit(-1)
 	}
 }
